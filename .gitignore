@@ -1,160 +1,60 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+from tkinter import *
 
-# C extensions
-*.so
+master = Tk()
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+canvas = Canvas (master, height=600 , width=1000)
+canvas.pack()
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+frame_ustsol = Frame(master, bg='#add8e6')
+frame_ustsol.place(relx=0.02, rely=0.0 ,relwidth=0.15, relheight=0.15)
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+frame_ustsag = Frame(master, bg='#add8e6')
+frame_ustsag.place(relx=0.2, rely=0.0 ,relwidth=0.75, relheight=0.15)
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+frame_altsol = Frame(master, bg='#add8e6')
+frame_altsol.place(relx=0.02, rely=0.2 ,relwidth=0.3, relheight=0.75)
 
-# Translations
-*.mo
-*.pot
+frame_altsag = Frame(master, bg='#add8e6')
+frame_altsag.place(relx=0.35, rely=0.2 ,relwidth=0.6, relheight=0.75)
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+kart_tipi_etiket= Label(frame_ustsag, bg='#add8e6', text="Kart stok no", font="Verdana 12 bold")
+kart_tipi_etiket.pack(padx=10, pady=10, side=LEFT)
+kart_tipi_opsiyon=StringVar(frame_ustsag)
+kart_tipi_opsiyon.set("\t")
+kart_tipi_acilir_menu= OptionMenu(
+frame_ustsag,
+    kart_tipi_opsiyon,
+    "AA",
+    "DE",
+    "ZZ")
+kart_tipi_acilir_menu.pack(padx=10, pady=10, side=LEFT)
 
-# Flask stuff:
-instance/
-.webassets-cache
+kart_hata_konum_etiket= Label(frame_ustsag, bg='#add8e6', text="Kart hatalı konum", font="Verdana 12 bold")
+kart_hata_konum_etiket.pack(padx=10, pady=10, side=LEFT)
+kart_hata_konum_opsiyon=StringVar(frame_ustsag)
+kart_hata_konum_opsiyon.set("\t")
+kart_hata_konum_acilir_menu= OptionMenu(
+frame_ustsag,
+    kart_hata_konum_opsiyon,
+    "td1",
+    "td2",
+    "td3")
 
-# Scrapy stuff:
-.scrapy
+kart_hata_konum_acilir_menu.pack(padx=10, pady=10, side=LEFT)
 
-# Sphinx documentation
-docs/_build/
+#değişken oluşturuken
+#deg = a diye olabilir
 
-# PyBuilder
-.pybuilder/
-target/
+Label(frame_altsol, text="MENÜ", bg='#add8e6', font="Verdana 10 bold").pack(padx=10, pady=10, anchor=NW)
 
-# Jupyter Notebook
-.ipynb_checkpoints
+var = IntVar()
+R1 = Radiobutton(frame_altsol, text="KAYDET", variable= var, value=1, bg='#add8e6', font="Verdana 10" )
+R1.pack(anchor=NW, pady=5, padx=15)
 
-# IPython
-profile_default/
-ipython_config.py
+var1 = IntVar()
+C1= Checkbutton(frame_altsol, text='aaaa', variable=var1, onvalue= 1, offvalue=0, bg='#add8e6', font="Verdana 10" )
+C1.pack(anchor=NW, pady=5, padx=25)
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+master.mainloop()
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+#--------------------------------------------------------------------------------------------------------------------------------
